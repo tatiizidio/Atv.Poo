@@ -21,7 +21,9 @@ public class RespostaListaExercicio {
 	 */
 	public static float calcularImc(float peso, float altura) 
 	{
-		return 0f;
+		float resultado;
+		resultado = peso/(altura * altura);
+		return resultado;
 	}
 	
 	/**
@@ -47,7 +49,14 @@ public class RespostaListaExercicio {
 	 */
 	public static int maiorEntreDoisInteiros(int a, int b) 
 	{
-		return 0;
+		int maiorValor;
+		if(a > b) {
+			maiorValor = a;
+		}
+		else {
+			maiorValor = b;
+		}
+		return maiorValor;
 	}
 	
 	/**
@@ -59,6 +68,12 @@ public class RespostaListaExercicio {
 	 */
 	public static boolean verificarParImpar(int numero) 
 	{
+		int resto = numero%2;
+		if( resto == 0) {
+	
+			return true;
+		}
+		
 		return false;		
 	}
 	
@@ -69,7 +84,14 @@ public class RespostaListaExercicio {
 	 * @return media
 	 */
 	public static float calcularMediaNotas(float[] notas) {
-		return 0f;
+		
+		float media;
+		  float soma = 0;
+		    for (float nota : notas) {
+		        soma += nota;
+		    }
+		    media = soma /notas.length;
+	        return media;
 	}
 	
 	/**
@@ -80,7 +102,16 @@ public class RespostaListaExercicio {
 	 */
 	public static void imprimirArrayInverso(int[] array)
 	{
-		System.out.print("");
+		if (array == null || array.length == 0) {
+	        return; 
+	    }
+
+	    for (int i = array.length - 1; i >= 0; i--) {
+	        System.out.print(array[i]);
+	        if (i > 0) {
+	            System.out.print(", ");
+	        }
+	    }
 	}
 	
 	/**
@@ -91,9 +122,23 @@ public class RespostaListaExercicio {
 	 */
 	public static void imprimirElementosPrimos(int[] array) 
 	{
-		System.out.print("");
-	}
-	
+    for (int num : array) {
+    
+        if (num > 1) { 
+            boolean isPrimo = true;
+            for (int i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i == 0) {
+                    isPrimo = false;
+                    break;
+                }
+            }
+            if (isPrimo) {
+                System.out.print(num + " ");
+            }
+        }
+    }
+}
+
 	
 	/**
 	 * Método deve imprimir os elementos ímpares de um array de inteiros. O formato da impressão 
@@ -103,8 +148,18 @@ public class RespostaListaExercicio {
 	 */
 	public static void imprimirElementosImpares(int[] array) 
 	{
-		System.out.print("");
+	    if (array == null || array.length == 0) {
+	        System.out.print("Array vazio ou nulo.");
+	        return; 
+	    }
+
+	    for (int num : array) {
+	        if (num % 2 != 0) { 
+	            System.out.print(num + " "); 
+	        }
+	    }
 	}
+	
 	
 	
 	/**
@@ -115,10 +170,14 @@ public class RespostaListaExercicio {
 	 */
 	public static void imprimirElementosPares(int[] array) 
 	{
-		System.out.print("");
-	}
-	
-	
+		 for (int num : array) {
+		        if (num % 2 == 0) { 
+		            System.out.print(num + " ");
+		        } else {
+		            System.out.print("(não é ímpar) ");
+		        }
+		    }
+		}
 	/**
 	 * Método deve imprimir o maior e o menor elemento de um array de inteiros. O formato da impressão 
 	 * deve ser feito numa única linha, utilizando espaço em branco (" ") entre os elementos e 
@@ -127,8 +186,26 @@ public class RespostaListaExercicio {
 	 */
 	public static void imprimirMaiorMenorElemento(int[] array) 
 	{
-		System.out.print("");
-	}
+		   if (array == null || array.length == 0) {
+		        System.out.print("Array vazio ou nulo.");
+		        return; 
+		    }
+
+		    int maior = array[0];
+		    int menor = array[0];
+
+		    for (int num : array) {
+		        if (num > maior) {
+		            maior = num;
+		        }
+		        if (num < menor) {
+		            menor = num;
+		        }
+		    }
+
+		    System.out.print(maior + " " + menor + " ");
+		}
+
 	
 	/**
 	 * O método calcula a média aritmética dos elementos de um array de inteiros. 
@@ -138,7 +215,16 @@ public class RespostaListaExercicio {
 	 */
 	public static float calcularMediaAritmetica(int[] array) 
 	{
-		return 0f;
+		   if (array == null || array.length == 0) {
+		        return 0f; 
+		    }
+
+		    int soma = 0;
+		    for (int num : array) {
+		        soma += num; 
+		    }
+
+		    return (float) soma / array.length; 
+		}
 	}
 	
-}
